@@ -7,7 +7,7 @@
 var Hero = Class.create(ControllerableCharacter, {
   initialize: function (x, y) {
     ControllerableCharacter.call(this, x, y);
-    this.image = core.assets["./chara/vx_chara01_a_01.png"];
+    this.image = core.assets["./chara/vx_chara07_d_02.png"];
     this.speed = 15;
     this.fire = 2;
     this.bom = 10
@@ -95,7 +95,7 @@ var Fire = Class.create(ControllableFire, {
 var Enemy = Class.create(UncontrollableCharacter, {
   initialize: function(x, y) {
       UncontrollableCharacter.call(this, x ,y);
-      this.image = core.assets["./chara/vx_chara07_d_02.png"]
+      this.image = core.assets["./chara/vx_chara01_a_01.png"]
       this.speed = 10;
   }
 })
