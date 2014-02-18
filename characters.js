@@ -203,11 +203,11 @@ var ControllerableCharacter = Class.create(Character, {
   bomb: function(){
 
     /* movingのように制御する */ 
-    if(gunmachan.bom === 0){
+    if(hero.bom === 0){
       return;
     };
     if(!(field[Math.floor(this.x/32)][Math.floor(this.y/32)+1] >= 60)){
-      gunmachan.bom = gunmachan.bom - 1;
+      hero.bom = hero.bom - 1;
       bombs[volume] = new Bomb(this.x, this.y + 16)
       bombs[volume].hoge = 0;
       core.rootScene.addChild(bombs[volume]);

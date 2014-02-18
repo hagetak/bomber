@@ -35,12 +35,6 @@ var bombs = []
 var volume = 0;
 
 
-function debugMode() {
-  gunmachan.speed = 10;
-  gunmachan.iryoku = 15;
-  gunmachan.bom = 10;
-}
-
 
 // 初期化処理
 window.onload = function () {
@@ -126,7 +120,6 @@ window.onload = function () {
       // キャラクターを登場させる
       hero = new Hero(32, 16);
       core.rootScene.addChild(hero);
-      debugMode();
 
 
 

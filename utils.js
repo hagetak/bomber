@@ -110,9 +110,9 @@ function blockCheck(x, y){
   }
 
     /* ぐんまちゃんの判定処理 */
-  if(Math.floor(gunmachan.x / 32) == sx && Math.floor(gunmachan.y / 32) + 1 == sy){
+  if(Math.floor(hero.x / 32) == sx && Math.floor(hero.y / 32) + 1 == sy){
     return 0;
-    gunmachan.attacked();
+    hero.attacked();
   } 
 
   /* 敵の判定処理 */ 

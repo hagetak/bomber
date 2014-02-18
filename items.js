@@ -35,14 +35,14 @@ var UncontrollableItem = Class.create(Item, {
     if(sx === x && sy === y) {
       switch(this.frame){
         case 0:
-          gunmachan.speed = gunmachan.speed - 2;
+          hero.speed = hero.speed - 2;
           break;
         case 1:
-          gunmachan.bom = gunmachan.bom + 1;
+          hero.bom = hero.bom + 1;
           break;
         case 2:
 
-          gunmachan.fire = gunmachan.fire + 1;
+          hero.fire = hero.fire + 1;
           break;
         default:
           break;
@@ -95,7 +95,7 @@ var ControllableBomb = Class.create(Item, {
       var left_hit = right_hit = up_hit = down_hit = 0;
 
         /* 左のブロックを確認し、破壊する */
-        for(var h = 0;h < gunmachan.fire; h++){
+        for(var h = 0;h < hero.fire; h++){
           hx = this.x - (h * 32) - 32;
           hy = this.y;
           hCheck = blockCheck(hx, hy);
@@ -116,13 +116,13 @@ var ControllableBomb = Class.create(Item, {
             left_fire.break()
             core.rootScene.addChild(left_fire)
           }
-            if((h + 1) >= gunmachan.fire || left_hit > 0){
+            if((h + 1) >= hero.fire || left_hit > 0){
             left_fire.frame = [0]
-            h = gunmachan.fire
+            h = hero.fire
           }
         }
         /* 右のブロックを確認し、破壊する */
-        for(var i = 0;i < gunmachan.fire; i++){
+        for(var i = 0;i < hero.fire; i++){
           ix = this.x + (i * 32) + 32;
           iy = this.y;
           iCheck = blockCheck(ix, iy);
@@ -143,14 +143,14 @@ var ControllableBomb = Class.create(Item, {
             right_fire.break()
             core.rootScene.addChild(right_fire)
           }
-          if((i + 1) >= gunmachan.fire || right_hit == 1){
+          if((i + 1) >= hero.fire || right_hit == 1){
             right_fire.frame = [0]
-            i = gunmachan.fire
+            i = hero.fire
           }
         }
 
         /* 上のブロックを確認し、破壊する */
-        for(var j = 0;j < gunmachan.fire; j++){
+        for(var j = 0;j < hero.fire; j++){
           jx = this.x
           jy = this.y - (j * 32) -32;
           jCheck = blockCheck(jx, jy);
@@ -173,14 +173,14 @@ var ControllableBomb = Class.create(Item, {
             up_fire.break()
             core.rootScene.addChild(up_fire)
           }
-          if((j + 1) >= gunmachan.fire || up_hit == 1){
+          if((j + 1) >= hero.fire || up_hit == 1){
             up_fire.frame = [0]
-            j = gunmachan.fire
+            j = hero.fire
           }
         }
 
         /* 下のブロックを確認し、破壊する */
-        for(var k = 0;k < gunmachan.fire; k++){
+        for(var k = 0;k < hero.fire; k++){
           kx = this.x
           ky = this.y + (k * 32) + 32;
           kCheck = blockCheck(kx, ky);
@@ -202,9 +202,9 @@ var ControllableBomb = Class.create(Item, {
             down_fire.break()
             core.rootScene.addChild(down_fire)
           }
-          if((k + 1) >= gunmachan.fire || down_hit == 1){
+          if((k + 1) >= hero.fire || down_hit == 1){
             down_fire.frame = [0]
-            k = gunmachan.fire
+            k = hero.fire
           }
         }
 
@@ -213,7 +213,7 @@ var ControllableBomb = Class.create(Item, {
        */
       field[Math.floor((this.x)/32)][Math.floor((this.y)/32)] = 0;
       this.parentNode.removeChild(this);
-      gunmachan.bom = gunmachan.bom + 1;
+      hero.bom = hero.bom + 1;
 
   }
 })
@@ -232,8 +232,8 @@ var ControllableFire = Class.create(Item, {
     y = Math.floor(this.y/32)
 
     /* ぐんまちゃんの判定処理 */
-    if(Math.floor(gunmachan.x / 32) == x && Math.floor(gunmachan.y / 32) + 1 == y){
-      gunmachan.attacked();
+    if(Math.floor(hero.x / 32) == x && Math.floor(hero.y / 32) + 1 == y){
+      hero.attacked();
     } 
 
     /* 敵の判定処理 */ 
